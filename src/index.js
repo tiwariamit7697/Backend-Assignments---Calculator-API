@@ -97,7 +97,7 @@ app.post("/sub",(req,res)=>{
             {
                 status: "success",
                 message: "the difference of given two numbers",
-                sum: num1-num2
+                difference: num1-num2
             }
         );
     }
@@ -142,7 +142,7 @@ app.post("/multiply",(req,res)=>{
             {
                 status: "success",
                 message: "the product of given two numbers",
-                sum: num1*num2
+                result: num1*num2
             }
         );
     }
@@ -152,7 +152,10 @@ app.post("/divide",(req,res)=>{
     const body=req.body;
     const num1=body.num1;
     const num2=body.num2;
-    const sumResult=num1/num2;
+    if(num2!=0)
+    {
+        var sumResult=num1/num2;
+    }
     if(num1<-1000000 || num2<-1000000 || sumResult <-1000000)
     {
         res.send(
@@ -195,12 +198,12 @@ app.post("/divide",(req,res)=>{
             {
                 status: "success",
                 message: "the division of given two numbers",
-                sum: num1/num2
+                result: num1/num2
             }
         );
     }
 });
 
-app.listen(port)
+app.listen(port);
 
 module.exports = app;
