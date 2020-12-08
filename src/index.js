@@ -19,8 +19,7 @@ app.post("/add",(req,res)=>{
     const body=req.body;
     const num1=body.num1;
     const num2=body.num2;
-    const sumResult=num1+num2;
-    if(num1<-1000000 || num2<-1000000 || sumResult <-1000000)
+    if(num1<-1000000 || num2<-1000000)
     {
         res.send(
             {
@@ -63,8 +62,8 @@ app.post("/sub",(req,res)=>{
     const body=req.body;
     const num1=body.num1;
     const num2=body.num2;
-    const sumResult=num1-num2;
-    if(num1<-1000000 || num2<-1000000 || sumResult <-1000000)
+    
+    if(num1<-1000000 || num2<-1000000)
     {
         res.send(
             {
@@ -73,7 +72,7 @@ app.post("/sub",(req,res)=>{
             }
         );
     }
-    else if(num1>1000000 || num2>1000000 || sumResult>1000000)
+    else if(num1>1000000 || num2>1000000)
     {
         res.send(
             {
@@ -108,8 +107,7 @@ app.post("/multiply",(req,res)=>{
     const body=req.body;
     const num1=body.num1;
     const num2=body.num2;
-    const sumResult=num1*num2;
-    if(num1<-1000000 || num2<-1000000 || sumResult <-1000000)
+    if(num1<-1000000 || num2<-1000000 || (num1*num2) <-1000000)
     {
         res.send(
             {
@@ -118,7 +116,7 @@ app.post("/multiply",(req,res)=>{
             }
         );
     }
-    else if(num1>1000000 || num2>1000000 || sumResult>1000000)
+    else if(num1>1000000 || num2>1000000)
     {
         res.send(
             {
@@ -152,11 +150,6 @@ app.post("/divide",(req,res)=>{
     const body=req.body;
     const num1=body.num1;
     const num2=body.num2;
-    try{
-        var sumResult=num1/num2;
-    }catch(e){
-        console.log(e);
-    }
     if(num2==0)
     {
         res.send(
@@ -166,7 +159,7 @@ app.post("/divide",(req,res)=>{
             }
         );
     }
-    else if(num1<-1000000 || num2<-1000000 || sumResult <-1000000)
+    else if(num1<-1000000 || num2<-1000000)
     {
         res.send(
             {
@@ -175,7 +168,7 @@ app.post("/divide",(req,res)=>{
             }
         );
     }
-    else if(num1>1000000 || num2>1000000 || sumResult>1000000)
+    else if(num1>1000000 || num2>1000000)
     {
         res.send(
             {
