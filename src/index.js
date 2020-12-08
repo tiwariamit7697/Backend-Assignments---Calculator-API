@@ -152,11 +152,21 @@ app.post("/divide",(req,res)=>{
     const body=req.body;
     const num1=body.num1;
     const num2=body.num2;
-    if(num2!=0)
-    {
+    try{
         var sumResult=num1/num2;
+    }catch(e){
+        console.log(e);
     }
-    if(num1<-1000000 || num2<-1000000 || sumResult <-1000000)
+    if(num2==0)
+    {
+        res.send(
+            {
+                status:"error",
+                message: "Cannot divide by zero"
+            }
+        );
+    }
+    else if(num1<-1000000 || num2<-1000000 || sumResult <-1000000)
     {
         res.send(
             {
@@ -183,15 +193,7 @@ app.post("/divide",(req,res)=>{
             }
         );
     }
-    else if(num2==0)
-    {
-        res.send(
-            {
-                status:"error",
-                message: "Cannot divide by zero"
-            }
-        );
-    }
+    
     else
     {
         res.send(
